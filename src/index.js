@@ -36,6 +36,7 @@ LEVELS.filter((name, level) => level >= 5).forEach((name, level) => {
   level += 5;
   log[name.toLowerCase()] = (...messages) => {
     if (level > log.level) return;
+
     log._stdout.write(log._compose({
       time: log._formatTime(new Date()),
       level: name,
