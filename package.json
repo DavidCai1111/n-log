@@ -1,0 +1,40 @@
+{
+  "name": "n-log",
+  "version": "0.0.1",
+  "description": "Logging with happiness",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "xo && rm -rf lib && ./node_modules/.bin/babel src --out-dir lib && ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha",
+    "compile": "rm -rf lib && ./node_modules/.bin/babel src --out-dir lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DavidCai1993/n-log.git"
+  },
+  "xo": {
+    "esnext": true,
+    "space": true,
+    "rules": {
+      "curly": 0,
+      "prefer-const": 0,
+      "no-implicit-coercion": 0,
+      "camelcase": 0
+    },
+    "ignore": ["lib/**"]
+  },
+  "keywords": [
+    "log",
+    "logger"
+  ],
+  "author": "DavidCai1993",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.5.1",
+    "babel-core": "^6.5.2",
+    "babel-preset-es2015": "^6.5.0",
+    "istanbul": "^1.0.0-alpha.2",
+    "mocha": "^2.4.5",
+    "should": "^8.2.2",
+    "xo": "^0.12.1"
+  }
+}

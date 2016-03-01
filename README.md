@@ -1,2 +1,3 @@
 # n-log
-:memo:Logging with happiness
+
+Logging with happiness
