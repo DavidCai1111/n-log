@@ -22,7 +22,8 @@ function log(...messages) {
 
 LEVELS.filter((name, level) => level < 5).forEach((name, level) => {
   log[name.toLowerCase()] = (...messages) => {
-    if (level < log.level) return;
+    if (level > log.level) return;
+
     log._stderr.write(log._compose({
       time: log._formatTime(new Date()),
       level: name,
@@ -34,7 +35,7 @@ LEVELS.filter((name, level) => level < 5).forEach((name, level) => {
 LEVELS.filter((name, level) => level >= 5).forEach((name, level) => {
   level += 5;
   log[name.toLowerCase()] = (...messages) => {
-    if (level < log.level) return;
+    if (level > log.level) return;
     log._stdout.write(log._compose({
       time: log._formatTime(new Date()),
       level: name,
@@ -44,7 +45,7 @@ LEVELS.filter((name, level) => level >= 5).forEach((name, level) => {
 });
 
 log.levels = LEVELS;
-log.level = 0;
+log.level = 7;
 log._stdout = process.stdout;
 log._stderr = process.stderr;
 

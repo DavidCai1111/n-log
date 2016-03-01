@@ -30,7 +30,7 @@ describe('n-log', () => {
 
   beforeEach(() => {
     log._compose = _compose;
-    log.level = 0;
+    log.level = 7;
     testStdout.clean();
     testStderr.clean();
   });
@@ -58,11 +58,11 @@ describe('n-log', () => {
 
   it('should log nothing when levels is too high', () => {
     log.level = 2;
-    log.alert('jaja1');
+    log.error('jaja1');
     testStdout.buffer.should.be.eql('');
 
     log.level = 6;
-    log.notice('jaja2');
+    log.debug('jaja2');
     testStderr.buffer.should.be.eql('');
   });
 
