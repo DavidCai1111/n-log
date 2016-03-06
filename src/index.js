@@ -78,11 +78,12 @@ function _Error(error) {
   if (error.errno) this.errno = error.errno;
   if (error.syscall) this.syscall = error.syscall;
   if (error.status) this.status = error.status;
-  if (error.stack) this.stack = error.stack;
 
   Object.keys(error).forEach(key => {
     if (!this[key]) this[key] = error[key];
   });
+
+  if (error.stack) this.stack = error.stack;
 
   return this;
 }
